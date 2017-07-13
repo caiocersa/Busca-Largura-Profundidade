@@ -165,5 +165,83 @@ public class Grafo_Comodo {
            }
 	   
    }
+   
+   public int retornaIndice(char comodo){
+        switch (comodo) {
+            case 'A':
+                return 0;
+            case 'B':
+                return 1;
+            case 'C':
+                return 2;
+            case 'D':
+                return 3;
+            case 'E':
+                return 4;
+            case 'F':
+                return 5;
+            case 'G':
+                return 6;
+            case 'H':
+                return 7;
+            case 'I':
+                return 8;
+            case 'J':
+                return 9;
+            case 'L':
+                return 10;
+            case 'M':
+                return 11;
+            case 'N':
+                return 12;
+            default:
+                return -1;
+        }
+   }
+    
+   
+   public void buscaEmProfundidade(int estado_inicial, int estado_final){
+       
+       comodos[estado_inicial].visitado = true;
+       int ponteiro = estado_inicial, linha = 0, coluna = 0;
+       caminho = caminho + estado_inicial;
+       
+       ArrayList<Comodo> lista = new ArrayList();
+       Comodo comodo = comodos[estado_inicial];
+       lista.add(comodo);
+       
+       while (!lista.isEmpty()){
+           
+            int filho = retornarNo(ponteiro);
+            
+            if (filho == -1){
+                Comodo comodo_remove = comodos[ponteiro];
+                lista.remove(comodo_remove);
+                int tamanho = lista.size();
+                tamanho = tamanho - 1;
+                
+                if (tamanho >= 0){
+                    char label = lista.get(tamanho).getId();
+                    ponteiro = retornaIndice(label);
+                }
+            } else{
+                    caminho = caminho + filho;
+                    comodos[filho].visitado = true;
+                    comodo = comodos[filho];
+
+                    lista.add(comodo);
+
+                    rota[linha][coluna] = ponteiro;
+                    rota[linha][++coluna] = filho;
+                    linha++;
+                
+                    if (coluna == 1)
+                        coluna = 0;
+                    
+                    ponteiro = filho;
+            }
+       }
+       rotaprincipal(rota,estado_inicial,estado_final);
+   }
     
 }
