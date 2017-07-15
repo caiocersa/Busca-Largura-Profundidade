@@ -8,14 +8,42 @@ class BackgroundImageJFrame extends JFrame
 {
 	JButton b1;
 	static JLabel l1; 
-
+		
+		public static void funcao_transicao(int inicio, int destino) {
+			Thread t1 = new Thread() {
+				public void run() {
+					try {
+						if (inicio == 0 && destino == 1) {
+							direita(30,130);
+							Thread.sleep(1300);
+							descer(35,175);
+							Thread.sleep(1300);
+							direita(130,175);
+							Thread.sleep(1300);
+						} else if (inicio == 1 && destino == 0) {
+							esquerda(175,130);
+							Thread.sleep(500);
+							subir(175,35);
+							Thread.sleep(1300);
+							esquerda(130,30);
+							Thread.sleep(1300);
+						}
+					} catch  (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}};
+			t1.start();
+		}
+	
 		
 		public static void direita(int xInicial, int xFinal) {
 	
 			Thread t1 = new Thread() {
 				public void run() {
 					for (int i = xInicial; i < xFinal; i++) {
-						l1.setBounds(i,35,30,46);
+						l1.setBounds(i,l1.getY(),30,46);
 						try{
 							Thread.sleep(9);
 						} catch (InterruptedException ex) {
@@ -32,7 +60,7 @@ class BackgroundImageJFrame extends JFrame
 			Thread t1 = new Thread() {
 				public void run() {
 					for (int i = xInicial; i > xFinal; i--) {
-						l1.setBounds(i,35,30,46);
+						l1.setBounds(i,l1.getY(),30,46);
 						try{
 							Thread.sleep(9);
 						} catch (InterruptedException ex) {
@@ -87,19 +115,7 @@ class BackgroundImageJFrame extends JFrame
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
-	/*
-		One way
-		-----------------
-		setLayout(new BorderLayout());
-		JLabel background=new JLabel(new ImageIcon("C:\\Users\\Computer\\Downloads\\colorful design.png"));
-		add(background);
-		background.setLayout(new FlowLayout());
-		l1=new JLabel("Here is a button");
-		b1=new JButton("I am a button");
-		background.add(l1);
-		background.add(b1);
-	*/
-	// Another way
+
 		setLayout(new BorderLayout());
 		setContentPane(new JLabel(new ImageIcon(ClassLoader.getSystemResource("TelaDoProjetoDeIA/planta.png"))));
 		setLayout(new FlowLayout());
@@ -113,16 +129,16 @@ class BackgroundImageJFrame extends JFrame
 		setSize(570,418);
 		setSize(580,430);
 		setLayout(null);
-		l1.setBounds(130, 175, 30, 46);
 		System.out.println("DIMENSAO: " + l1.getBounds());
 		System.out.println("VALOR DE X: " + l1.getX());
 		
 		
-		direita(30,130);
-		//descer(35,175);
-		//subir(175,35);
+
 		setResizable(false); //Redimensiona a tela
 
+		l1.setBounds(170, 175, 30, 46);
+		
+		funcao_transicao(1,0);
 		
 		}
 		
