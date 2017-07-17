@@ -21,35 +21,50 @@ public class classe_main {
      
         Grafo_Comodo grafo = new Grafo_Comodo();
         
-        grafo.setComodos(new Comodo('A'));
-        grafo.setComodos(new Comodo('B'));
-        grafo.setComodos(new Comodo('C'));
-        grafo.setComodos(new Comodo('D'));
-        grafo.setComodos(new Comodo('E'));
-        grafo.setComodos(new Comodo('F'));
-        grafo.setComodos(new Comodo('G'));
-        grafo.setComodos(new Comodo('H'));
-        grafo.setComodos(new Comodo('I'));
-        grafo.setComodos(new Comodo('J'));
-        grafo.setComodos(new Comodo('L'));
-        grafo.setComodos(new Comodo('M'));
-        grafo.setComodos(new Comodo('N'));
+        grafo.setComodos(new Comodo('A')); // 0
+        grafo.setComodos(new Comodo('B')); // 1
+        grafo.setComodos(new Comodo('C')); // 2
+        grafo.setComodos(new Comodo('D')); // 3
+        grafo.setComodos(new Comodo('E')); // 4
+        grafo.setComodos(new Comodo('F')); // 5
+        grafo.setComodos(new Comodo('G')); // 6
+        grafo.setComodos(new Comodo('I')); // 7 
+        grafo.setComodos(new Comodo('J')); // 8
+        grafo.setComodos(new Comodo('L')); // 9
+        grafo.setComodos(new Comodo('M')); // 10
+        grafo.setComodos(new Comodo('N')); // 11
+        grafo.setComodos(new Comodo('O')); // 12
+        grafo.setComodos(new Comodo('P')); // 13
+        grafo.setComodos(new Comodo('Q')); // 14
+        grafo.setComodos(new Comodo('R')); // 15
+        grafo.setComodos(new Comodo('S')); // 16
+        grafo.setComodos(new Comodo('T')); // 17
+        grafo.setComodos(new Comodo('U')); // 18
+        grafo.setComodos(new Comodo('V')); // 19
+        grafo.setComodos(new Comodo('X')); // 20
+        grafo.setComodos(new Comodo('Z')); // 21
+        grafo.setComodos(new Comodo('W')); // 22
+        grafo.setComodos(new Comodo('Y')); // 23
         
-        for (int x = 0; x < 13; x++){
+        
+        
+        for (int x = 0; x < 24; x++){
             System.out.print("[");
-            for (int y = 0; y < 13; y++){
+            for (int y = 0; y < 24; y++){
                 System.out.print(grafo.matriz[x][y] + " ");
             }
             System.out.println("]");
         }
-           
+        /*   
         System.out.println("\n\n");
-        for (int x = 0; x < 13; x++){
+        for (int x = 0; x < 24; x++){
             System.out.print(grafo.comodos[x].id + " ");
         }
         grafo.buscaEmLargura(0, 12);
+        
         System.out.println("\n\n");
         System.out.println("Caminho: " + grafo.caminho);
+        */
     }
     
 }

@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-class BackgroundImageJFrame extends JFrame {
+class Animacao extends JFrame {
 
     JButton b1;
     static JLabel l1;
@@ -103,7 +103,7 @@ class BackgroundImageJFrame extends JFrame {
         t1.start();
     }
 
-    public BackgroundImageJFrame() {
+    public Animacao() {
         setTitle("Background Color for JFrame");
         setSize(400, 400);
         setLocationRelativeTo(null);
@@ -111,7 +111,7 @@ class BackgroundImageJFrame extends JFrame {
         setVisible(true);
 
         setLayout(new BorderLayout());
-        setContentPane(new JLabel(new ImageIcon(ClassLoader.getSystemResource("imagens/planta.png"))));
+        setContentPane(new JLabel(new ImageIcon(ClassLoader.getSystemResource("imagens/planta-mapeada.png"))));
         setLayout(new FlowLayout());
         l1 = new JLabel(new ImageIcon(ClassLoader.getSystemResource("imagens/roboOriginal.png")));
         b1 = new JButton("I am a button");
@@ -128,7 +128,7 @@ class BackgroundImageJFrame extends JFrame {
         setResizable(false); //Redimensiona a tela
 
         // Receber os dados (inicial , final e vetor caminho) da VIEW PRINCIPAL
-        char inicial = 'N';
+        char inicial = 'Y';
 
         // fim
         //Possicionando o aspirador de acordo com a sua inicial
@@ -137,10 +137,10 @@ class BackgroundImageJFrame extends JFrame {
                 l1.setBounds(35, 50, 31, 28);
                 break;
             case 'B':
-                l1.setBounds(123, 50, 31, 28);
+                l1.setBounds(126, 50, 31, 28);
                 break;
             case 'C':
-                l1.setBounds(123, 135, 31, 28);
+                l1.setBounds(126, 131, 31, 28);
                 break;
             case 'D':
                 l1.setBounds(56, 135, 31, 28);
@@ -152,31 +152,28 @@ class BackgroundImageJFrame extends JFrame {
                 l1.setBounds(56, 320, 31, 28);
                 break;
             case 'G':
-                l1.setBounds(153, 180, 31, 28);
-                break;
-            case 'H':
-                l1.setBounds(153, 245, 31, 28);
+                l1.setBounds(126, 180, 31, 28);
                 break;
             case 'I':
-                l1.setBounds(123, 312, 31, 28);
+                l1.setBounds(126, 312, 31, 28);
                 break;
             case 'J':
                 l1.setBounds(178, 312, 31, 28);
                 break;
             case 'L':
-                l1.setBounds(220, 180, 31, 28);
+                l1.setBounds(176, 180, 31, 28);
                 break;
             case 'M':
                 l1.setBounds(285, 180, 31, 28);
                 break;
             case 'N':
-                l1.setBounds(298, 225, 31, 28);
+                l1.setBounds(291, 225, 31, 28);
                 break;
             case 'O':
                 l1.setBounds(298, 287, 31, 28);
                 break;
             case 'P':
-                l1.setBounds(285, 87, 31, 28);
+                l1.setBounds(283, 87, 31, 28);
                 break;
             case 'Q':
                 l1.setBounds(350, 105, 31, 28);
@@ -208,13 +205,15 @@ class BackgroundImageJFrame extends JFrame {
             case 'Y':
                 l1.setBounds(465, 137, 31, 28);
                 break;
+            default: 
+                System.out.println("Letra invalida!");
 
         }
 
-        // funcao_transicao(1, 0);
+        //funcao_transicao(1, 0);
     }
 
     public static void main(String args[]) {
-        new BackgroundImageJFrame();
+        new Animacao();
     }
 }
