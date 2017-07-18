@@ -5,17 +5,23 @@
  */
 package Views;
 
+import codigos.Comodo;
+import codigos.Grafo_Comodo;
+import static java.lang.Character.toUpperCase;
+import Views.Animacao;
+
 /**
  *
  * @author caio_
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    char inicial;
+    char objetivo;
+
     public Principal() {
         initComponents();
+        Grafo_Comodo grafo = new Grafo_Comodo();
     }
 
     /**
@@ -40,8 +46,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        tempo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -54,6 +62,11 @@ public class Principal extends javax.swing.JFrame {
         txtTitulo.setText("Busca em Largura e Profundidade");
 
         btnProfundidade.setText("Busca em Profundidade");
+        btnProfundidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfundidadeActionPerformed(evt);
+            }
+        });
 
         btnLargura.setText("Busca em Largura");
         btnLargura.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +85,12 @@ public class Principal extends javax.swing.JFrame {
 
         txt2.setText("Comôdo Final:");
 
+        txtFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFinalActionPerformed(evt);
+            }
+        });
+
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Uso de Memoria:");
 
@@ -79,16 +98,24 @@ public class Principal extends javax.swing.JFrame {
         jLabel7.setText("Tempo de Execução:");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("Log de Movimentação:");
+        jLabel6.setText("Log de Expansão:");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Planta-31.jpg"))); // NOI18N
-        jLabel1.setToolTipText("");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/planta-mapeada.png"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/planta.jpg"))); // NOI18N
+        jButton1.setText("Visualizar Matriz");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        tempo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel1.setText("nanosegundos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,38 +125,39 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(68, 68, 68))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnProfundidade)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnProfundidade)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(89, 89, 89)
+                            .addComponent(txtTitulo))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(9, 9, 9)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(89, 89, 89)
-                                    .addComponent(txtTitulo))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addGap(9, 9, 9)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(txt2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txtFinal))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(txt)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(txtInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(0, 0, Short.MAX_VALUE)))
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addContainerGap())))
+                                    .addComponent(txt2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtFinal))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(txt)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tempo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1))
+                    .addComponent(jLabel6)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,19 +177,21 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnProfundidade)
-                            .addComponent(btnLargura))
+                            .addComponent(btnLargura)
+                            .addComponent(jButton1))
                         .addGap(33, 33, 33)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(tempo)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
-                .addGap(112, 112, 112)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Opções");
@@ -193,8 +223,95 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLarguraActionPerformed
 
     private void txtInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInicialActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtInicialActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFinalActionPerformed
+
+    }//GEN-LAST:event_txtFinalActionPerformed
+
+    private void btnProfundidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfundidadeActionPerformed
+
+        objetivo = toUpperCase(txtFinal.getText().charAt(0));
+        inicial = toUpperCase(txtInicial.getText().charAt(0));
+
+        Grafo_Comodo grafo = new Grafo_Comodo();
+        grafo.setComodos(new Comodo('A')); // 0
+        grafo.setComodos(new Comodo('B')); // 1
+        grafo.setComodos(new Comodo('C')); // 2
+        grafo.setComodos(new Comodo('D')); // 3
+        grafo.setComodos(new Comodo('E')); // 4
+        grafo.setComodos(new Comodo('F')); // 5
+        grafo.setComodos(new Comodo('G')); // 6
+        grafo.setComodos(new Comodo('I')); // 7 
+        grafo.setComodos(new Comodo('J')); // 8
+        grafo.setComodos(new Comodo('L')); // 9
+        grafo.setComodos(new Comodo('M')); // 10
+        grafo.setComodos(new Comodo('N')); // 11
+        grafo.setComodos(new Comodo('O')); // 12
+        grafo.setComodos(new Comodo('P')); // 13
+        grafo.setComodos(new Comodo('Q')); // 14
+        grafo.setComodos(new Comodo('R')); // 15
+        grafo.setComodos(new Comodo('S')); // 16
+        grafo.setComodos(new Comodo('T')); // 17
+        grafo.setComodos(new Comodo('U')); // 18
+        grafo.setComodos(new Comodo('V')); // 19
+        grafo.setComodos(new Comodo('X')); // 20
+        grafo.setComodos(new Comodo('Z')); // 21
+        grafo.setComodos(new Comodo('W')); // 22
+        grafo.setComodos(new Comodo('Y')); // 23
+
+        int ini = grafo.retornaIndice(inicial);
+        int end = grafo.retornaIndice(objetivo);
+        long tempoInicial = System.nanoTime();
+        grafo.buscaEmProfundidade(ini, end);
+        long tempoFinal = System.nanoTime();
+        tempo.setText(Double.toString(tempoFinal - tempoInicial));
+        String teste = "";
+
+        //LOG COMPLETO DE EXPANSÃO
+        for (int x = 0; grafo.rota.length > x; x++) {
+
+            for (int y = 0; y < 2; y++) {
+                if (y == 0 && grafo.rota[x][y] != -1) {
+                    teste += "[";
+                }
+                if (grafo.rota[x][y] != -1) {
+                    teste += " " + grafo.retornaLetra(grafo.rota[x][y]) + " ";
+                }
+                if (y == 1 && grafo.rota[x][y] != -1) {
+                    teste += "] \n";
+                }
+
+            }
+
+        }
+        jTextArea1.setText(teste);
+        String[] resultado = grafo.rota_objetivo.split(";");
+        int[][] rota_ob = new int[20][2];
+        for (int x = 0; x < 20; x++) {
+            for (int y = 0; y < 2; y++) {
+                rota_ob[x][y] = -1;
+            }
+        }
+        int y = 0;
+        for (int x = 0; resultado.length > x; x++) {
+            if (resultado.length > y) {
+                rota_ob[x][0] = Integer.parseInt(resultado[y]);
+                rota_ob[x][1] = Integer.parseInt(resultado[++y]);
+                y++;
+            }
+
+        }
+
+        Animacao ani = new Animacao(ini,rota_ob);
+
+
+    }//GEN-LAST:event_btnProfundidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,6 +351,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLargura;
     private javax.swing.JButton btnProfundidade;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
@@ -245,6 +363,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel tempo;
     private javax.swing.JLabel txt;
     private javax.swing.JLabel txt2;
     private javax.swing.JTextField txtFinal;

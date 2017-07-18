@@ -6,8 +6,9 @@ import java.util.Queue;
 public class Grafo_Comodo {
 
     int[][] matriz = new int[24][24]; // MATRIZ DO PROBLEMA
-    int[][] rota = new int[40][2];  // MENOR CAMINHO DO PONTO INICIAL PARA O PONTO OBJETIVO
+    public int[][] rota = new int[40][2];  // MENOR CAMINHO DO PONTO INICIAL PARA O PONTO OBJETIVO
     Comodo[] comodos = new Comodo[24]; // ESTADOS DO MEU PROBLEMA 23 PQ COMEÇA DO 0
+    public String rota_objetivo = "";
     int indice;
     Queue fila;
     String caminho = "";
@@ -216,8 +217,7 @@ public class Grafo_Comodo {
         tamanho--;
 
         while (tamanho >= 0) {
-            System.out.println("\n\nROTA OBJETIVO: " + matriz[pilha.get(tamanho)][0]
-                    + " - " + matriz[pilha.get(tamanho)][1]);
+            rota_objetivo += matriz[pilha.get(tamanho)][0] + ";" + matriz[pilha.get(tamanho)][1] + ";";
             tamanho--;
         }
 
@@ -278,6 +278,63 @@ public class Grafo_Comodo {
                 return -1;
         }
     }
+
+    public char retornaLetra(int comodo) {
+        switch (comodo) {
+            case 0:
+                return 'A';
+            case 1:
+                return 'B';
+            case 2:
+                return 'C';
+            case 3:
+                return 'D';
+            case 4:
+                return 'E';
+            case 5:
+                return 'F';
+            case 6:
+                return 'G';
+            case 7:
+                return 'I';
+            case 8:
+                return 'J';
+            case 9:
+                return 'L';
+            case 10:
+                return 'M';
+            case 11:
+                return 'N';
+            case 12:
+                return 'O';
+            case 13:
+                return 'P';
+            case 14:
+                return 'Q';
+            case 15:
+                return 'R';
+            case 16:
+                return 'S';
+            case 17:
+                return 'T';
+            case 18:
+                return 'U';
+            case 19:
+                return 'V';
+            case 20:
+                return 'X';
+            case 21:
+                return 'Z';
+            case 22:
+                return 'W';
+            case 23:
+                return 'Y';
+
+            default:
+                return 'h';
+        }
+    }
+    
 
     public void buscaEmProfundidade(int estado_inicial, int estado_final) {
 

@@ -18,9 +18,9 @@ public class classe_main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-     
+
         Grafo_Comodo grafo = new Grafo_Comodo();
-        
+
         grafo.setComodos(new Comodo('A')); // 0
         grafo.setComodos(new Comodo('B')); // 1
         grafo.setComodos(new Comodo('C')); // 2
@@ -45,26 +45,27 @@ public class classe_main {
         grafo.setComodos(new Comodo('Z')); // 21
         grafo.setComodos(new Comodo('W')); // 22
         grafo.setComodos(new Comodo('Y')); // 23
-        
-        
-        
-        for (int x = 0; x < 24; x++){
+
+        for (int x = 0; x < 24; x++) {
             System.out.print("[");
-            for (int y = 0; y < 24; y++){
+            for (int y = 0; y < 24; y++) {
                 System.out.print(grafo.matriz[x][y] + " ");
             }
             System.out.println("]");
         }
-        /*   
+
         System.out.println("\n\n");
-        for (int x = 0; x < 24; x++){
+        for (int x = 0; x < 24; x++) {
             System.out.print(grafo.comodos[x].id + " ");
         }
-        grafo.buscaEmLargura(0, 12);
-        
+        grafo.buscaEmLargura(22, 7);
+
         System.out.println("\n\n");
-        System.out.println("Caminho: " + grafo.caminho);
-        */
+        System.out.println("Rota ate o objetivo:" + grafo.rota_objetivo);
+       
+
+
+
     }
-    
+
 }
