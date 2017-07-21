@@ -38,9 +38,7 @@ public class Principal extends javax.swing.JFrame {
         btnProfundidade = new javax.swing.JButton();
         btnLargura = new javax.swing.JButton();
         txt = new javax.swing.JLabel();
-        txtInicial = new javax.swing.JTextField();
         txt2 = new javax.swing.JLabel();
-        txtFinal = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -50,6 +48,8 @@ public class Principal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         tempo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        ComboBoxInicial = new javax.swing.JComboBox<>();
+        ComboBoxFinal = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -77,19 +77,7 @@ public class Principal extends javax.swing.JFrame {
 
         txt.setText("Comôdo Inicial:");
 
-        txtInicial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtInicialActionPerformed(evt);
-            }
-        });
-
         txt2.setText("Comôdo Final:");
-
-        txtFinal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFinalActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Uso de Memoria:");
@@ -117,6 +105,15 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1.setText("nanosegundos");
 
+        ComboBoxInicial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "D", "E", "F", "G", "H", "I", "J", "L", "M", "N", "O", "P", "Q", "R", "T", "U", "V", "X", "Z", "Y", "W", "K", "a", "b", "c", "d" }));
+        ComboBoxInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxInicialActionPerformed(evt);
+            }
+        });
+
+        ComboBoxFinal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "D", "E", "F", "G", "H", "I", "J", "L", "M", "N", "O", "P", "Q", "R", "T", "U", "V", "X", "Z", "Y", "W", "K", "a", "b", "c", "d" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -136,15 +133,15 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(txtTitulo))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGap(9, 9, 9)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(txt2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtFinal))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(txt)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(ComboBoxInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(txt2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(ComboBoxFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(0, 0, Short.MAX_VALUE)))
                     .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -169,11 +166,11 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt)
-                            .addComponent(txtInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ComboBoxInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt2)
-                            .addComponent(txtFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ComboBoxFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnProfundidade)
@@ -191,7 +188,7 @@ public class Principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Opções");
@@ -212,7 +209,7 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -222,22 +219,13 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLarguraActionPerformed
 
-    private void txtInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInicialActionPerformed
-
-    }//GEN-LAST:event_txtInicialActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFinalActionPerformed
-
-    }//GEN-LAST:event_txtFinalActionPerformed
-
     private void btnProfundidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfundidadeActionPerformed
-
-        objetivo = toUpperCase(txtFinal.getText().charAt(0));
-        inicial = toUpperCase(txtInicial.getText().charAt(0));
+        objetivo = codigos.Grafo_Comodo.retornaLetra(ComboBoxInicial.getItemCount());
+        inicial = codigos.Grafo_Comodo.retornaLetra(ComboBoxFinal.getItemCount());
 
         Grafo_Comodo grafo = new Grafo_Comodo();
         grafo.setComodos(new Comodo('A')); // 0
@@ -247,23 +235,28 @@ public class Principal extends javax.swing.JFrame {
         grafo.setComodos(new Comodo('E')); // 4
         grafo.setComodos(new Comodo('F')); // 5
         grafo.setComodos(new Comodo('G')); // 6
-        grafo.setComodos(new Comodo('I')); // 7 
-        grafo.setComodos(new Comodo('J')); // 8
-        grafo.setComodos(new Comodo('L')); // 9
-        grafo.setComodos(new Comodo('M')); // 10
-        grafo.setComodos(new Comodo('N')); // 11
-        grafo.setComodos(new Comodo('O')); // 12
-        grafo.setComodos(new Comodo('P')); // 13
-        grafo.setComodos(new Comodo('Q')); // 14
-        grafo.setComodos(new Comodo('R')); // 15
-        grafo.setComodos(new Comodo('S')); // 16
-        grafo.setComodos(new Comodo('T')); // 17
-        grafo.setComodos(new Comodo('U')); // 18
-        grafo.setComodos(new Comodo('V')); // 19
-        grafo.setComodos(new Comodo('X')); // 20
-        grafo.setComodos(new Comodo('Z')); // 21
-        grafo.setComodos(new Comodo('W')); // 22
+        grafo.setComodos(new Comodo('H')); // 7 
+        grafo.setComodos(new Comodo('I')); // 8 
+        grafo.setComodos(new Comodo('J')); // 9
+        grafo.setComodos(new Comodo('L')); // 10
+        grafo.setComodos(new Comodo('M')); // 11
+        grafo.setComodos(new Comodo('N')); // 12
+        grafo.setComodos(new Comodo('O')); // 13
+        grafo.setComodos(new Comodo('P')); // 14
+        grafo.setComodos(new Comodo('Q')); // 15
+        grafo.setComodos(new Comodo('R')); // 16
+        grafo.setComodos(new Comodo('S')); // 17
+        grafo.setComodos(new Comodo('T')); // 18
+        grafo.setComodos(new Comodo('U')); // 19
+        grafo.setComodos(new Comodo('V')); // 20
+        grafo.setComodos(new Comodo('X')); // 21
+        grafo.setComodos(new Comodo('Z')); // 22
         grafo.setComodos(new Comodo('Y')); // 23
+        grafo.setComodos(new Comodo('W')); // 24
+        grafo.setComodos(new Comodo('K')); // 25
+        grafo.setComodos(new Comodo('a')); // 26
+        grafo.setComodos(new Comodo('b')); // 27
+        grafo.setComodos(new Comodo('c')); // 28
 
         int ini = grafo.retornaIndice(inicial);
         int end = grafo.retornaIndice(objetivo);
@@ -272,7 +265,7 @@ public class Principal extends javax.swing.JFrame {
         long tempoFinal = System.nanoTime();
         tempo.setText(Double.toString(tempoFinal - tempoInicial));
         String teste = "";
-
+        
         //LOG COMPLETO DE EXPANSÃO
         for (int x = 0; grafo.rota.length > x; x++) {
 
@@ -313,6 +306,10 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnProfundidadeActionPerformed
 
+    private void ComboBoxInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxInicialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxInicialActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -349,6 +346,8 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBoxFinal;
+    private javax.swing.JComboBox<String> ComboBoxInicial;
     private javax.swing.JButton btnLargura;
     private javax.swing.JButton btnProfundidade;
     private javax.swing.JButton jButton1;
@@ -366,8 +365,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel tempo;
     private javax.swing.JLabel txt;
     private javax.swing.JLabel txt2;
-    private javax.swing.JTextField txtFinal;
-    private javax.swing.JTextField txtInicial;
     private javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
 }
