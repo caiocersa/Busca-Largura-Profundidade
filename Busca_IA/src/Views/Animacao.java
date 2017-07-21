@@ -332,7 +332,6 @@ class Animacao extends JFrame {
         setTitle("Background Color for JFrame");
         setSize(400, 400);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         Grafo_Comodo n = new Grafo_Comodo();
         setLayout(new BorderLayout());

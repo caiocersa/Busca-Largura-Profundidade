@@ -7,6 +7,8 @@ package Views;
 
 import codigos.Comodo;
 import codigos.Grafo_Comodo;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,8 +18,10 @@ public class Main extends javax.swing.JFrame {
 
     char inicial;
     char objetivo;
+
     public Main() {
         initComponents();
+       
     }
 
     /**
@@ -30,9 +34,9 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnProfundidade = new javax.swing.JButton();
+        btnLargura = new javax.swing.JButton();
+        btnMatriz = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -41,11 +45,11 @@ public class Main extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         tempo = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        memoria = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BLITZDRONE");
@@ -54,19 +58,24 @@ public class Main extends javax.swing.JFrame {
         jPanel1.setName(""); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(1123, 675));
 
-        jButton1.setText("Busca em Profundidade");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnProfundidade.setText("Busca em Profundidade");
+        btnProfundidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnProfundidadeActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Busca em Largura");
-
-        jButton3.setText("Visualizar Matriz");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnLargura.setText("Busca em Largura");
+        btnLargura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnLarguraActionPerformed(evt);
+            }
+        });
+
+        btnMatriz.setText("Visualizar Matriz");
+        btnMatriz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMatrizActionPerformed(evt);
             }
         });
 
@@ -87,9 +96,6 @@ public class Main extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Log de Expansão:");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel9.setText("nanosegundos");
-
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -107,9 +113,9 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnProfundidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLargura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnMatriz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
@@ -128,11 +134,9 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tempo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tempo)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(memoria)))
                     .addComponent(jLabel2))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
@@ -155,19 +159,20 @@ public class Main extends javax.swing.JFrame {
                                             .addComponent(jLabel4)
                                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jButton1)
+                                        .addComponent(btnProfundidade)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2)
+                                        .addComponent(btnLargura)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton3)))
+                                        .addComponent(btnMatriz)))
                                 .addGap(10, 10, 10))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(memoria))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel6)
-                                    .addComponent(tempo)
-                                    .addComponent(jLabel9))
+                                    .addComponent(tempo))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
@@ -200,14 +205,51 @@ public class Main extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatrizActionPerformed
+        Grafo_Comodo grafo = new Grafo_Comodo();
+        grafo.setComodos(new Comodo('A')); // 0
+        grafo.setComodos(new Comodo('B')); // 1
+        grafo.setComodos(new Comodo('C')); // 2
+        grafo.setComodos(new Comodo('D')); // 3
+        grafo.setComodos(new Comodo('E')); // 4
+        grafo.setComodos(new Comodo('F')); // 5
+        grafo.setComodos(new Comodo('G')); // 6
+        grafo.setComodos(new Comodo('H')); // 7 
+        grafo.setComodos(new Comodo('I')); // 8 
+        grafo.setComodos(new Comodo('J')); // 9
+        grafo.setComodos(new Comodo('L')); // 10
+        grafo.setComodos(new Comodo('M')); // 11
+        grafo.setComodos(new Comodo('N')); // 12
+        grafo.setComodos(new Comodo('O')); // 13
+        grafo.setComodos(new Comodo('P')); // 14
+        grafo.setComodos(new Comodo('Q')); // 15
+        grafo.setComodos(new Comodo('R')); // 16
+        grafo.setComodos(new Comodo('S')); // 17
+        grafo.setComodos(new Comodo('T')); // 18
+        grafo.setComodos(new Comodo('U')); // 19
+        grafo.setComodos(new Comodo('V')); // 20
+        grafo.setComodos(new Comodo('X')); // 21
+        grafo.setComodos(new Comodo('Z')); // 22
+        grafo.setComodos(new Comodo('Y')); // 23
+        grafo.setComodos(new Comodo('W')); // 24
+        grafo.setComodos(new Comodo('K')); // 25
+        grafo.setComodos(new Comodo('Ç')); // 26
+        grafo.setComodos(new Comodo('a')); // 27
+        grafo.setComodos(new Comodo('b')); // 28
+        grafo.setComodos(new Comodo('c')); // 29
+        char[] vet = new char[30];
+        for (int x = 0; x <30;x++){
+            vet[x] = grafo.retornaLetra(x);
+        }
+        
+        Matriz mat = new Matriz(grafo.matriz, vet);
+    }//GEN-LAST:event_btnMatrizActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        objetivo = codigos.Grafo_Comodo.retornaLetra(jComboBox2.getItemCount());
-        inicial = codigos.Grafo_Comodo.retornaLetra(jComboBox1.getItemCount());
-
+    private void btnProfundidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfundidadeActionPerformed
+        String ob = (String) jComboBox2.getSelectedItem();
+        String in = (String) jComboBox1.getSelectedItem();
+        inicial = in.charAt(0);
+        objetivo = ob.charAt(0);
         Grafo_Comodo grafo = new Grafo_Comodo();
         grafo.setComodos(new Comodo('A')); // 0
         grafo.setComodos(new Comodo('B')); // 1
@@ -240,14 +282,18 @@ public class Main extends javax.swing.JFrame {
         grafo.setComodos(new Comodo('b')); // 28
         grafo.setComodos(new Comodo('c')); // 29
 
+        Runtime rt = Runtime.getRuntime();
         int ini = grafo.retornaIndice(inicial);
         int end = grafo.retornaIndice(objetivo);
         long tempoInicial = System.nanoTime();
+        long memini= rt.freeMemory();
         grafo.buscaEmProfundidade(ini, end);
+        long memfim= rt.totalMemory();
         long tempoFinal = System.nanoTime();
-        tempo.setText(Double.toString(tempoFinal - tempoInicial));
+        memoria.setText(Double.toString(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory())+" Bytes");
+        tempo.setText(Double.toString(tempoFinal - tempoInicial)+ " Nanosegundos");
         String teste = "";
-        
+
         //LOG COMPLETO DE EXPANSÃO
         for (int x = 0; grafo.rota.length > x; x++) {
 
@@ -267,8 +313,8 @@ public class Main extends javax.swing.JFrame {
         }
         jTextArea1.setText(teste);
         String[] resultado = grafo.rota_objetivo.split(";");
-        int[][] rota_ob = new int[20][2];
-        for (int x = 0; x < 20; x++) {
+        int[][] rota_ob = new int[80][2];
+        for (int x = 0; x < 80; x++) {
             for (int y = 0; y < 2; y++) {
                 rota_ob[x][y] = -1;
             }
@@ -283,8 +329,95 @@ public class Main extends javax.swing.JFrame {
 
         }
 
-        Animacao ani = new Animacao(ini,rota_ob);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        //Animacao ani = new Animacao(ini, rota_ob);
+    }//GEN-LAST:event_btnProfundidadeActionPerformed
+
+    private void btnLarguraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLarguraActionPerformed
+        String ob = (String) jComboBox2.getSelectedItem();
+        String in = (String) jComboBox1.getSelectedItem();
+        inicial = in.charAt(0);
+        objetivo = ob.charAt(0);
+        Grafo_Comodo grafo = new Grafo_Comodo();
+        grafo.setComodos(new Comodo('A')); // 0
+        grafo.setComodos(new Comodo('B')); // 1
+        grafo.setComodos(new Comodo('C')); // 2
+        grafo.setComodos(new Comodo('D')); // 3
+        grafo.setComodos(new Comodo('E')); // 4
+        grafo.setComodos(new Comodo('F')); // 5
+        grafo.setComodos(new Comodo('G')); // 6
+        grafo.setComodos(new Comodo('H')); // 7 
+        grafo.setComodos(new Comodo('I')); // 8 
+        grafo.setComodos(new Comodo('J')); // 9
+        grafo.setComodos(new Comodo('L')); // 10
+        grafo.setComodos(new Comodo('M')); // 11
+        grafo.setComodos(new Comodo('N')); // 12
+        grafo.setComodos(new Comodo('O')); // 13
+        grafo.setComodos(new Comodo('P')); // 14
+        grafo.setComodos(new Comodo('Q')); // 15
+        grafo.setComodos(new Comodo('R')); // 16
+        grafo.setComodos(new Comodo('S')); // 17
+        grafo.setComodos(new Comodo('T')); // 18
+        grafo.setComodos(new Comodo('U')); // 19
+        grafo.setComodos(new Comodo('V')); // 20
+        grafo.setComodos(new Comodo('X')); // 21
+        grafo.setComodos(new Comodo('Z')); // 22
+        grafo.setComodos(new Comodo('Y')); // 23
+        grafo.setComodos(new Comodo('W')); // 24
+        grafo.setComodos(new Comodo('K')); // 25
+        grafo.setComodos(new Comodo('Ç')); // 26
+        grafo.setComodos(new Comodo('a')); // 27
+        grafo.setComodos(new Comodo('b')); // 28
+        grafo.setComodos(new Comodo('c')); // 29
+
+        Runtime rt = Runtime.getRuntime();
+        int ini = grafo.retornaIndice(inicial);
+        int end = grafo.retornaIndice(objetivo);
+        long tempoInicial = System.nanoTime();
+        long memini= rt.freeMemory();
+        grafo.buscaEmLargura(ini, end);
+        long memfim= rt.totalMemory();
+        long tempoFinal = System.nanoTime();
+        memoria.setText(Double.toString(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory())+" Bytes");
+        tempo.setText(Double.toString(tempoFinal - tempoInicial)+ " Nanosegundos");
+        String teste = "";
+
+        //LOG COMPLETO DE EXPANSÃO
+        for (int x = 0; grafo.rota.length > x; x++) {
+
+            for (int y = 0; y < 2; y++) {
+                if (y == 0 && grafo.rota[x][y] != -1) {
+                    teste += "[";
+                }
+                if (grafo.rota[x][y] != -1) {
+                    teste += " " + grafo.retornaLetra(grafo.rota[x][y]) + " ";
+                }
+                if (y == 1 && grafo.rota[x][y] != -1) {
+                    teste += "] \n";
+                }
+
+            }
+
+        }
+        jTextArea1.setText(teste);
+        String[] resultado = grafo.rota_objetivo.split(";");
+        int[][] rota_ob = new int[80][2];
+        for (int x = 0; x < 80; x++) {
+            for (int y = 0; y < 2; y++) {
+                rota_ob[x][y] = -1;
+            }
+        }
+        int y = 0;
+        for (int x = 0; resultado.length > x; x++) {
+            if (resultado.length > y) {
+                rota_ob[x][0] = Integer.parseInt(resultado[y]);
+                rota_ob[x][1] = Integer.parseInt(resultado[++y]);
+                y++;
+            }
+
+        }
+
+       // Animacao ani = new Animacao(ini, rota_ob);
+    }//GEN-LAST:event_btnLarguraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,9 +455,9 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnLargura;
+    private javax.swing.JButton btnMatriz;
+    private javax.swing.JButton btnProfundidade;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
@@ -334,10 +467,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel memoria;
     private javax.swing.JLabel tempo;
     // End of variables declaration//GEN-END:variables
+
+    private void seticon() {
+        this.setIconImage(new ImageIcon("imagens/icone.png").getImage());
+    }
 }
