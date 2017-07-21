@@ -154,9 +154,8 @@ public class Grafo_Comodo {
         while (!array.isEmpty()) {
             int v1 = array.get(0);
             array.remove(0);
-
+;
             while ((no = retornarNo(v1)) != -1) {
-                array.add(no);
                 caminho = caminho + no;
                 comodos[no].visitado = true;
                 rota[linha][coluna] = v1;
@@ -167,6 +166,9 @@ public class Grafo_Comodo {
                 if (coluna == 1) {
                     coluna = 0;
                 }
+                if (no != estado_final)
+                    array.add(no);
+                
             }
         }
         System.out.println("Caminho: " + caminho);
@@ -239,47 +241,57 @@ public class Grafo_Comodo {
                 return 5;
             case 'G':
                 return 6;
-            case 'I':
+            case 'H':
                 return 7;
-            case 'J':
+            case 'I':
                 return 8;
-            case 'L':
+            case 'J':
                 return 9;
-            case 'M':
+            case 'L':
                 return 10;
-            case 'N':
+            case 'M':
                 return 11;
-            case 'O':
+            case 'N':
                 return 12;
-            case 'P':
+            case 'O':
                 return 13;
-            case 'Q':
+            case 'P':
                 return 14;
-            case 'R':
+            case 'Q':
                 return 15;
-            case 'S':
+            case 'R':
                 return 16;
-            case 'T':
+            case 'S':
                 return 17;
-            case 'U':
+            case 'T':
                 return 18;
-            case 'V':
+            case 'U':
                 return 19;
-            case 'X':
+            case 'V':
                 return 20;
-            case 'Z':
+            case 'X':
                 return 21;
-            case 'W':
+            case 'Z':
                 return 22;
             case 'Y':
                 return 23;
+            case 'W':
+                return 24;
+            case 'K':
+                return 25;
+            case 'a':
+                return 26;
+            case 'b':
+                return 27;
+            case 'c':
+                return 28;
 
             default:
                 return -1;
         }
     }
 
-    public char retornaLetra(int comodo) {
+    public static char retornaLetra(int comodo) {
         switch (comodo) {
             case 0:
                 return 'A';
@@ -296,39 +308,49 @@ public class Grafo_Comodo {
             case 6:
                 return 'G';
             case 7:
-                return 'I';
+                return 'H';
             case 8:
-                return 'J';
+                return 'I';
             case 9:
-                return 'L';
+                return 'J';
             case 10:
-                return 'M';
+                return 'L';
             case 11:
-                return 'N';
+                return 'M';
             case 12:
-                return 'O';
+                return 'N';
             case 13:
-                return 'P';
+                return 'O';
             case 14:
-                return 'Q';
+                return 'P';
             case 15:
-                return 'R';
+                return 'Q';
             case 16:
-                return 'S';
+                return 'R';
             case 17:
-                return 'T';
+                return 'S';
             case 18:
-                return 'U';
+                return 'T';
             case 19:
-                return 'V';
+                return 'U';
             case 20:
-                return 'X';
+                return 'V';
             case 21:
-                return 'Z';
+                return 'X';
             case 22:
-                return 'W';
+                return 'Z';
             case 23:
                 return 'Y';
+            case 24:
+                return 'W';
+            case 25:
+                return 'K';
+            case 26:
+                return 'a';
+            case 27:
+                return 'b';
+            case 28:
+                return 'c';
 
             default:
                 return 'h';
