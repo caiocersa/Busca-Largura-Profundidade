@@ -22,231 +22,396 @@ class Animacao extends JFrame {
                     try {
                         //Transições de A
                         if (rota[x][0] == 0 && rota[x][1] == 1) {
-                            direita(35, 126); // temos que ter os valores de x e y de cada estado nesse vetor tipo caminho[x].atual.x e caminho[x].pai.x
-                            Thread.sleep(1300);
+                            descer(3, 125); 
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 0 && rota[x][1] == 9){
+                            direita(1,209);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 1 && rota[x][1] == 0) { //Transições de B
+                            subir(125, 3);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 1 && rota[x][1] == 2) {
+                            descer(125, 247);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 1 && rota[x][1] == 8) {
+                            direita(1, 209);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 2 && rota[x][1] == 1) { //TRANSIÇÕES DE C
+                            subir(247, 125);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 2 && rota[x][1] == 3) {
+                            descer(247, 362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 2 && rota[x][1] == 7) {
+                            direita(1, 209);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 3 && rota[x][1] == 2) { //TRANSIÇÕES DE D
+                            subir(362, 247);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 3 && rota[x][1] == 4) {
+                            descer(362, 482);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 3 && rota[x][1] == 6) {
+                            direita(1, 209);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 4 && rota[x][1] == 3) { //TRANSIÇÕES DE E
+                            subir(482, 362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 4 && rota[x][1] == 5) {
+                            direita(1, 209);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 5 && rota[x][1] == 4) { //TRANSIÇÕES DE F
+                            esquerda(209, 1);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 5 && rota[x][1] == 6) {
+                            subir(482, 362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 5 && rota[x][1] == 14) {
+                            direita(209, 441);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 6 && rota[x][1] == 3) { //TRANSIÇÕES DE G
+                            esquerda(209, 1);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 6 && rota[x][1] == 5) {
+                            descer(362, 482);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 6 && rota[x][1] == 7) {
+                            subir(362, 247);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 6 && rota[x][1] == 13) {
+                            direita(209, 441);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 7 && rota[x][1] == 2) { //TRANSIÇÕES DE H
+                            esquerda(209, 1);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 7 && rota[x][1] == 6) {
+                            descer(247, 362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 7 && rota[x][1] == 8) {
+                            subir(247, 125);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 7 && rota[x][1] == 12) {
+                            direita(209, 441);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 8 && rota[x][1] == 1) { //TRANSIÇÕES DE I
+                            esquerda(209, 1);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 8 && rota[x][1] == 7) {
+                            descer(125, 247);
+                            Thread.sleep(1000);
+                        } else if (rota[x][0] == 8 && rota[x][1] == 9) {
+                            subir(125, 3);
+                            Thread.sleep(1000);
+                        } else if (rota[x][0] == 8 && rota[x][1] == 11) {
+                            direita(209, 441);
+                            Thread.sleep(1000);
+                        } else if (rota[x][0] == 9 && rota[x][1] == 0) { //TRANSIÇÕES DE J
+                            esquerda(209, 1);
+                            
+                        } else if (rota[x][0] == 9 && rota[x][1] == 8) {
+                            descer(3, 125);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 9 && rota[x][1] == 10) {
+                            direita(209, 441);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 10 && rota[x][1] == 9) { //TRANSIÇÕES DE L
+                            esquerda(441, 209);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 10 && rota[x][1] == 11) {
+                            descer(3,125);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 10 && rota[x][1] == 19) {
+                            direita(441,661);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 11 && rota[x][1] == 8) { //TRANSIÇÕES DE M
+                            esquerda(441,209);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 11 && rota[x][1] == 10) {
+                            subir(125,3);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 11 && rota[x][1] == 12) {
+                            descer(125,247);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 11 && rota[x][1] == 18) {
+                            direita(441,661);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 12 && rota[x][1] == 7) { //TRANSIÇÕES DE N
+                            esquerda(441,209);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 12 && rota[x][1] == 11) {
+                            subir(247,125);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 12 && rota[x][1] == 13) {
+                            descer(247,362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 12 && rota[x][1] == 17) {
+                            direita(441,661);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 13 && rota[x][1] == 6) { //TRANSIÇÕES DE O
+                            esquerda(441,209);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 13 && rota[x][1] == 12) {
+                            subir(362,247);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 13 && rota[x][1] == 14) {
+                            descer(362,482);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 13 && rota[x][1] == 16) {
+                            direita(441,661);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 14 && rota[x][1] == 5) { //TRANSIÇÕES DE P
+                            esquerda(441,209);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 14 && rota[x][1] == 13) {
+                            subir(482,362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 14 && rota[x][1] == 15) {
+                            direita(441,661);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 15 && rota[x][1] == 14) { //TRANSIÇÕES DE Q
+                            esquerda(661,441);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 15 && rota[x][1] == 16) {
+                            subir(482,362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 15 && rota[x][1] == 24) {
+                            direita(661,885);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 16 && rota[x][1] == 13) { //TRANSIÇÕES DE R
+                            esquerda(661,441);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 16 && rota[x][1] == 15) {
+                            descer(362,482);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 16 && rota[x][1] == 17) {
+                            subir(362,247);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 16 && rota[x][1] == 23) {
+                            direita(661,885);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 17 && rota[x][1] == 12) { //TRANSIÇÕES DE S
+                            esquerda(661,441);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 17 && rota[x][1] == 16) {
+                            descer(247,362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 17 && rota[x][1] == 18) {
+                            subir(247,125);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 17 && rota[x][1] == 22) {
+                            direita(661,885);
+                            
+                            Thread.sleep(1000);
+                        } else if (rota[x][0] == 18 && rota[x][1] == 11) { //TRANSIÇÕES DE T
+                            esquerda(661,441);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 18 && rota[x][1] == 17) {
+                           descer(125,247);
+                           Thread.sleep(1000);
+                           
+                        } else if (rota[x][0] == 18 && rota[x][1] == 19) {
+                            subir(125,3);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 18 && rota[x][1] == 21) {
+                            direita(661,885);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 19 && rota[x][1] == 10) { //TRANSIÇÕES DE U
+                            esquerda(661,441);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 19 && rota[x][1] == 18) {
+                            descer(3,125);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 19 && rota[x][1] == 20) {
+                            direita(661,885);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 20 && rota[x][1] == 19) { //TRANSIÇÕES DE V
+                            esquerda(885,661);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 20 && rota[x][1] == 21) {
+                            descer(3,125);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 20 && rota[x][1] == 29) {
+                            direita(885,1060);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 21 && rota[x][1] == 18) { //TRANSIÇÕES DE X
+                            esquerda(885,661);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 21 && rota[x][1] == 20) {
+                            subir(125,3);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 21 && rota[x][1] == 22) {
+                            descer(125,247);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 21 && rota[x][1] == 28) {
+                            direita(885,1060);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 22 && rota[x][1] == 17) { //TRANSIÇÕES DE Z
+                            esquerda(885,661);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 22 && rota[x][1] == 21) {
+                            subir(247,125);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 22 && rota[x][1] == 23) {
+                            descer(247,362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 22 && rota[x][1] == 27) {
+                            direita(885,1060);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 23 && rota[x][1] == 16) { //TRANSIÇÕES DE Y
+                            esquerda(885,661);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 23 && rota[x][1] == 22) {
+                            subir(362,247);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 23 && rota[x][1] == 24) {
+                            descer(362,482);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 23 && rota[x][1] == 26) {
+                            direita(885,1060);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 24 && rota[x][1] == 15) { //TRANSIÇÕES DE W
+                            esquerda(885,661);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 24 && rota[x][1] == 23) {
+                            subir(482,362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 24 && rota[x][1] == 25) {
+                            direita(885,1060);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 25 && rota[x][1] == 24) { //TRANSIÇÕES DE K
+                            esquerda(1060,885);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 25 && rota[x][1] == 26) {
+                            subir(482,362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 26 && rota[x][1] == 23) { //TRANSIÇÕES DE Ç
+                            esquerda(1060,885);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 26 && rota[x][1] == 25) {
+                            descer(362,482);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 26 && rota[x][1] == 27) {
+                            subir(362,247);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 27 && rota[x][1] == 22) { //TRANSIÇÕES DE a
+                            esquerda(1060,885);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 27 && rota[x][1] == 26) {
+                            descer(247,362);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 27 && rota[x][1] == 28) {
+                            subir(247,125);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 28 && rota[x][1] == 21) { //TRANSIÇÕES DE b
+                            esquerda(1060,885);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 28 && rota[x][1] == 27) {
+                            descer(125,247);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 28 && rota[x][1] == 29) {
+                            subir(125,3);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 29 && rota[x][1] == 20) { //TRANSIÇÕES DE c
+                            esquerda(1060,885);
+                            Thread.sleep(1000);
+                            
+                        } else if (rota[x][0] == 29 && rota[x][1] == 28) {
+                            descer(3,125);
+                            Thread.sleep(1000);
+                            
                         }
-
-                        //Transições de B
-                        if (rota[x][0] == 1 && rota[x][1] == 0) {
-                            esquerda(126, 35);
-                            Thread.sleep(1300);
-                        }
-
-                        if (rota[x][0] == 1 && rota[x][1] == 2) {
-                            descer(50, 131);
-                            Thread.sleep(1300);
-                        }
-
-                        //TRANSIÇÕES DE C
-                        if (rota[x][0] == 2 && rota[x][1] == 1) {
-                            subir(131, 50);
-                            Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 2 && rota[x][1] == 3) {
-                            esquerda(126, 56);
-                            Thread.sleep(1300);
-                        }
-
-                        if (rota[x][0] == 2 && rota[x][1] == 6) {
-                            descer(131, 180);
-                            Thread.sleep(1300);
-                        }
-
-                        //TRANSIÇÕES DE D
-                        if (rota[x][0] == 3 && rota[x][1] == 2) {
-                            direita(56, 126);
-                            Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 3 && rota[x][1] == 4) {
-                            descer(135, 220);
-                            Thread.sleep(1300);
-                        }
-
-                        //TRANSIÇÕES DE E
-                        if (rota[x][0] == 4 && rota[x][1] == 3) {
-                            subir(220, 135);
-                            Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 4 && rota[x][1] == 5) {
-                            descer(220, 320);
-                            Thread.sleep(1300);
-                        }
-
-                        //TRANSIÇÕES DE F
-                        if (rota[x][0] == 5 && rota[x][1] == 4) {
-                            subir(320, 220);
-                            Thread.sleep(1300);
-                        }
-
-                        //TRANSIÇÕES DE G
-                        if (rota[x][0] == 6 && rota[x][1] == 2) {
-                            subir(180, 131);
-                            Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 6 && rota[x][1] == 9) {
-                            direita(126, 176);
-                            Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 6 && rota[x][1] == 7) {
-                            descer(180, 312);
-                            Thread.sleep(1300);
-                        }
-
-                        // TRANSIÇÕES DE I
-                        if (rota[x][0] == 7 && rota[x][1] == 6) {
-                            subir(312, 180);
-                            Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 7 && rota[x][1] == 8) {
-                            direita(126, 178);
-                            Thread.sleep(1300);
-                        }
-
-                        //TRANSIÇÕES DE J
-                        if (rota[x][0] == 8 && rota[x][1] == 7) {
-                            esquerda(178, 126);
-                            Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 8 && rota[x][1] == 9) {
-                            subir(312, 180);
-                            Thread.sleep(1500);
-                        }
-
-                        //TRANSIÇÕES DE L
-                        if (rota[x][0] == 9 && rota[x][1] == 6) {
-                            esquerda(176, 126);
-                            Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 9 && rota[x][1] == 8) {
-                            descer(180, 312);
-                            Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 9 && rota[x][1] == 10) {
-                            direita(176, 285);
-                            Thread.sleep(1300);
-                        }
-
-                        //TRANSIÇÕES DE M
-                        if (rota[x][0] == 10 && rota[x][1] == 9) {
-                            esquerda(285, 176);
-                            Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 10 && rota[x][1] == 11) {
-
-                        }
-                        if (rota[x][0] == 10 && rota[x][1] == 13) {
-
-                        }
-                        if (rota[x][0] == 10 && rota[x][1] == 18) {
-                            direita(285, 396);
-                            Thread.sleep(1300);
-                        }
-
-                        //TRANSIÇÕES DE N
-                        if (rota[x][0] == 11 && rota[x][1] == 12) {
-
-                        }
-                        if (rota[x][0] == 11 && rota[x][1] == 10) {
-
-                        }
-
-                        //TRANSIÇÕES DE O
-                        if (rota[x][0] == 12 && rota[x][1] == 11) {
-
-                        }
-
-                        //TRANSIÇÕES DE P
-                        if (rota[x][0] == 13 && rota[x][1] == 10) {
-
-                        }
-
-                        //TRANSIÇÕES DE Q
-                        if (rota[x][0] == 14 && rota[x][1] == 15) {
-
-                        }
-                        if (rota[x][0] == 14 && rota[x][1] == 16) {
-
-                        }
-
-                        //TRANSIÇÕES DE R
-                        if (rota[x][0] == 15 && rota[x][1] == 16) {
-
-                        }
-                        if (rota[x][0] == 15 && rota[x][1] == 14) {
-
-                        }
-
-                        //TRANSIÇÕES DE S
-                        if (rota[x][0] == 16 && rota[x][1] == 15) {
-
-                        }
-                        if (rota[x][0] == 16 && rota[x][1] == 17) {
-
-                        }
-
-                        //TRANSIÇÕES DE T
-                        if (rota[x][0] == 17 && rota[x][1] == 16) {
-
-                        }
-                        if (rota[x][0] == 17 && rota[x][1] == 14) {
-
-                        }
-                        if (rota[x][0] == 17 && rota[x][1] == 23) {
-
-                        }
-                        if (rota[x][0] == 17 && rota[x][1] == 18) {
-
-                        }
-
-                        //TRANSIÇÕES DE U
-                        if (rota[x][0] == 18 && rota[x][1] == 17) {
-
-                        }
-                        if (rota[x][0] == 18 && rota[x][1] == 10) {
-                           esquerda(396,285);
-                           Thread.sleep(1300);
-                        }
-                        if (rota[x][0] == 18 && rota[x][1] == 19) {
-
-                        }
-
-                        //TRANSIÇÕES DE V
-                        if (rota[x][0] == 19 && rota[x][1] == 18) {
-
-                        }
-                        if (rota[x][0] == 19 && rota[x][1] == 20) {
-
-                        }
-
-                        //TRANSIÇÕES DE X
-                        if (rota[x][0] == 20 && rota[x][1] == 19) {
-
-                        }
-                        if (rota[x][0] == 20 && rota[x][1] == 21) {
-
-                        }
-
-                        //TRASIÇÕES DE Z
-                        if (rota[x][0] == 21 && rota[x][1] == 19) {
-
-                        }
-                        if (rota[x][0] == 21 && rota[x][1] == 21) {
-
-                        }
-
-                        //TRANSIÇÕES DE Y
-                        if (rota[x][0] == 23 && rota[x][1] == 17) {
-
-                        }
-                        if (rota[x][0] == 23 && rota[x][1] == 22) {
-
-                        }
-
-                        //TRANSIÇÕES DE W
-                        if (rota[x][0] == 22 && rota[x][1] == 23) {
-
-                        }
-
+                        Thread.sleep(1300);
+                        
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -328,113 +493,121 @@ class Animacao extends JFrame {
         t1.start();
     }
 
-    public Animacao(int inicial, int[][] caminho) {
-        setTitle("Background Color for JFrame");
-        setSize(400, 400);
+    public Animacao(int inicial, int[][] rota) {
+        setTitle("BLITZ DRONE");
+        setSize(1101, 517);
         setLocationRelativeTo(null);
         setVisible(true);
         Grafo_Comodo n = new Grafo_Comodo();
         setLayout(new BorderLayout());
-        setContentPane(new JLabel(new ImageIcon(ClassLoader.getSystemResource("imagens/planta-mapeada.png"))));
+        setContentPane(new JLabel(new ImageIcon(ClassLoader.getSystemResource("imagens/mapa.png"))));
         setLayout(new FlowLayout());
-        l1 = new JLabel(new ImageIcon(ClassLoader.getSystemResource("imagens/roboOriginal.png")));
-        b1 = new JButton("I am a button");
+        l1 = new JLabel(new ImageIcon(ClassLoader.getSystemResource("imagens/drone.png")));
         add(l1);
-        add(b1);
-        l1.setBounds(0, 0, 30, 46);
-        System.out.println("DIMENSAO: " + l1.getBounds());
-        // Just for refresh :) Not optional!
-        setSize(570, 418);
+        setSize(1101, 544);
         setLayout(null);
-        System.out.println("DIMENSAO: " + l1.getBounds());
-        System.out.println("VALOR DE X: " + l1.getX());
-
         setResizable(false); //Redimensiona a tela
 
         // Receber os dados (inicial , final e vetor caminho) da VIEW PRINCIPAL
         char inicials = 'Y';
-
         // fim
-        //Possicionando o aspirador de acordo com a sua inicial
+        //Possicionando o drone de acordo com a sua inicial
         switch (n.retornaLetra(inicial)) {
-            case 'A':
-                l1.setBounds(35, 50, 31, 28);
+            case 'A': //0
+                l1.setBounds(1, 3, 31, 28);
                 break;
-            case 'B':
-                l1.setBounds(126, 50, 31, 28);
+            case 'B': //1
+                l1.setBounds(1, 125, 31, 28);
                 break;
-            case 'C':
-                l1.setBounds(126, 131, 31, 28);
+            case 'C': //2
+                l1.setBounds(1, 247, 31, 28);
                 break;
-            case 'D':
-                l1.setBounds(56, 135, 31, 28);
+            case 'D': //3
+                l1.setBounds(1, 362, 31, 28);
                 break;
-            case 'E':
-                l1.setBounds(56, 220, 31, 28);
+            case 'E': //4
+                l1.setBounds(1, 482, 31, 28);
                 break;
-            case 'F':
-                l1.setBounds(56, 320, 31, 28);
+            case 'F': //5
+                l1.setBounds(209, 482, 31, 28);
                 break;
-            case 'G':
-                l1.setBounds(126, 180, 31, 28);
+            case 'G': //6
+                l1.setBounds(209, 362, 31, 28);
                 break;
-            case 'I':
-                l1.setBounds(126, 312, 31, 28);
+            case 'H': //7
+                l1.setBounds(209, 247, 31, 28);
                 break;
-            case 'J':
-                l1.setBounds(178, 312, 31, 28);
+            case 'I': //8
+                l1.setBounds(209, 125, 31, 28);
                 break;
-            case 'L':
-                l1.setBounds(176, 180, 31, 28);
+            case 'J': //9
+                l1.setBounds(209, 3, 31, 28);
                 break;
-            case 'M':
-                l1.setBounds(285, 180, 31, 28);
+            case 'L': //10
+                l1.setBounds(441, 3, 31, 28);
                 break;
-            case 'N':
-                l1.setBounds(291, 225, 31, 28);
+            case 'M': //11
+                l1.setBounds(441, 125, 31, 28);
                 break;
-            case 'O':
-                l1.setBounds(298, 287, 31, 28);
+            case 'N': //12
+                l1.setBounds(441, 247, 31, 28);
                 break;
-            case 'P':
-                l1.setBounds(283, 87, 31, 28);
+            case 'O': //13
+                l1.setBounds(441, 362, 31, 28);
                 break;
-            case 'Q':
-                l1.setBounds(350, 105, 31, 28);
+            case 'P': //14
+                l1.setBounds(441, 482, 31, 28);
                 break;
-            case 'R':
-                l1.setBounds(350, 62, 31, 28);
+            case 'Q': //15
+                l1.setBounds(661, 482, 31, 28);
                 break;
-            case 'S':
-                l1.setBounds(398, 62, 31, 28);
+            case 'R': //16
+                l1.setBounds(661, 362, 31, 28);
                 break;
-            case 'T':
-                l1.setBounds(396, 136, 31, 28);
+            case 'S': //17
+                l1.setBounds(661, 247, 31, 28);
                 break;
-            case 'U':
-                l1.setBounds(396, 180, 31, 28);
+            case 'T': //18
+                l1.setBounds(661, 125, 31, 28);
                 break;
-            case 'V':
-                l1.setBounds(398, 245, 31, 28);
+            case 'U': //19
+                l1.setBounds(661, 3, 31, 28);
                 break;
-            case 'X':
-                l1.setBounds(415, 299, 31, 28);
+            case 'V': //20
+                l1.setBounds(885, 3, 31, 28);
                 break;
-            case 'Z':
-                l1.setBounds(483, 299, 31, 28);
+            case 'X': //21
+                l1.setBounds(885, 125, 31, 28);
                 break;
-            case 'W':
-                l1.setBounds(465, 176, 31, 28);
+            case 'Z': //22
+                l1.setBounds(885, 247, 31, 28);
                 break;
-            case 'Y':
-                l1.setBounds(465, 137, 31, 28);
+            case 'Y': //23
+                l1.setBounds(885, 362, 31, 28);
+                break;
+            case 'W': //24
+                l1.setBounds(885, 482, 31, 28);
+                break;
+            case 'K': //25
+                l1.setBounds(1060, 482, 31, 28);
+                break;
+            case 'Ç': //26
+                l1.setBounds(1060, 362, 31, 28);
+                break;
+            case 'a': //27
+                l1.setBounds(1060, 247, 31, 28);
+                break;
+            case 'b': //28
+                l1.setBounds(1060, 125, 31, 28);
+            break;
+            case 'c': //29
+                l1.setBounds(1060, 3, 31, 28);
                 break;
             default:
                 System.out.println("Letra invalida!");
 
         }
 
-        funcao_transicao(caminho);
+      funcao_transicao(rota);
     }
-
 }

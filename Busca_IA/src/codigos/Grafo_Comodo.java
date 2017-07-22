@@ -12,7 +12,7 @@ public class Grafo_Comodo {
     int indice;
     Queue fila;
     String caminho = "";
-    ArrayList<Integer> array = new ArrayList();
+    ArrayList<Integer> array = new ArrayList<Integer>();
 
     public Grafo_Comodo() {
         for (int x = 0; x < 30; x++) {
@@ -248,7 +248,7 @@ public class Grafo_Comodo {
     }
 
     public void rotaprincipal(int matriz[][], int inicial, int objetivo) {
-        ArrayList<Integer> pilha = new ArrayList();
+        ArrayList<Integer> pilha = new ArrayList<Integer> ();
 
         boolean encontrou = false;
 
@@ -428,7 +428,7 @@ public class Grafo_Comodo {
         int ponteiro = estado_inicial, linha = 0, coluna = 0;
         caminho = caminho + estado_inicial;
 
-        ArrayList<Comodo> lista = new ArrayList();
+        ArrayList<Comodo> lista = new ArrayList<Comodo>();
         Comodo comodo = comodos[estado_inicial];
         lista.add(comodo);
 
