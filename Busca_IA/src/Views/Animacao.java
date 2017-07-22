@@ -1,14 +1,24 @@
+/*
+ * UNIVERSIDADE FEDERAL DE SERGIPE
+ * Alunos: Caio Alves e Jadson Ribeiro
+ * Matéria: Inteligência Artificial
+ * Prof.: Dr. Alcides Xavier Benicasa
+ * Obs.: Código referente ao Projeto I da disciplina em questão
+ */
+
 package Views;
 
 import codigos.Grafo_Comodo;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
 import java.util.ArrayList;
 
 class Animacao extends JFrame {
 
-    JButton b1;
     static JLabel l1;
 
     public Animacao() {
@@ -493,6 +503,7 @@ class Animacao extends JFrame {
         t1.start();
     }
 
+    
     public Animacao(int inicial, int[][] rota) {
         setTitle("BLITZ DRONE");
         setSize(1101, 517);
@@ -605,9 +616,7 @@ class Animacao extends JFrame {
                 break;
             default:
                 System.out.println("Letra invalida!");
-
         }
-
-      funcao_transicao(rota);
+    funcao_transicao(rota);
     }
 }
