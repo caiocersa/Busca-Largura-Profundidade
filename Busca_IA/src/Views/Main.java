@@ -1,20 +1,18 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * UNIVERSIDADE FEDERAL DE SERGIPE
+ * Alunos: Caio Alves e Jadson Ribeiro
+ * Matéria: Inteligência Artificial
+ * Prof.: Dr. Alcides Xavier Benicasa
+ * Obs.: Código referente ao Projeto I da disciplina em questão
  */
+
 package Views;
 
 import codigos.Comodo;
 import codigos.Grafo_Comodo;
-import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author caio_
- */
 public class Main extends javax.swing.JFrame {
 
     char inicial;
@@ -407,7 +405,7 @@ public class Main extends javax.swing.JFrame {
                 }
 
             }
-            jTextArea1.setText(teste);
+             jTextArea1.setText(teste);
             String[] resultado = grafo.rota_objetivo.split(";");
             int[][] rota_ob = new int[80][2];
             for (int x = 0; x < 80; x++) {
