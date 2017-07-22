@@ -1,3 +1,11 @@
+/*
+ * UNIVERSIDADE FEDERAL DE SERGIPE
+ * Alunos: Caio Alves e Jadson Ribeiro
+ * Matéria: Inteligência Artificial
+ * Prof.: Dr. Alcides Xavier Benicasa
+ * Obs.: Código referente ao Projeto I da disciplina em questão
+ */
+
 package codigos;
 
 import java.util.ArrayList;
@@ -6,8 +14,8 @@ import java.util.Queue;
 public class Grafo_Comodo {
 
     public int[][] matriz = new int[30][30]; // MATRIZ DO PROBLEMA
-    public int[][] rota = new int[80][2];  // MENOR CAMINHO DO PONTO INICIAL PARA O PONTO OBJETIVO
-    public Comodo[] comodos = new Comodo[30]; // ESTADOS DO MEU PROBLEMA 23 PQ COMEÇA DO 0
+    public int[][] rota = new int[80][2];  // CAMINHO DO PONTO INICIAL PARA O PONTO OBJETIVO
+    public Comodo[] comodos = new Comodo[30]; // ESTADOS DO PROBLEMA
     public String rota_objetivo = "";
     int indice;
     Queue fila;
@@ -214,7 +222,7 @@ public class Grafo_Comodo {
         while (!array.isEmpty()) {
             int v1 = array.get(0);
             array.remove(0);
-            ;
+            
             while ((no = retornarNo(v1)) != -1) {
                 caminho = caminho + no;
                 comodos[no].visitado = true;
@@ -232,23 +240,61 @@ public class Grafo_Comodo {
 
             }
         }
-        System.out.println("Caminho: " + caminho);
-
-        System.out.println("\n\nEXPANSAO DOS NOS: ");
-        for (int x = 0; x < contador; x++) {
-            System.out.print("[");
-            for (int y = 0; y < 2; y++) {
-                System.out.print(rota[x][y] + " ");
-            }
-            System.out.println("]");
-        }
 
         rotaprincipal(rota, estado_inicial, estado_final);
 
     }
 
+    public void buscaEmProfundidade(int estado_inicial, int estado_final) {
+
+        comodos[estado_inicial].visitado = true;
+        int ponteiro = estado_inicial, linha = 0, coluna = 0;
+        caminho = caminho + estado_inicial;
+
+        ArrayList<Comodo> lista = new ArrayList<Comodo>();
+        Comodo comodo = comodos[estado_inicial];
+        lista.add(comodo);
+
+        while (!lista.isEmpty()) {
+
+            int filho = retornarNo(ponteiro);
+
+            if (filho == -1) {
+                Comodo comodo_remove = comodos[ponteiro];
+                lista.remove(comodo_remove);
+                int tamanho = lista.size();
+                tamanho = tamanho - 1;
+
+                if (tamanho >= 0) {
+                    char label = lista.get(tamanho).getId();
+                    ponteiro = retornaIndice(label);
+                }
+            } else {
+                    caminho = caminho + filho;
+                    comodos[filho].visitado = true;
+
+                    rota[linha][coluna] = ponteiro;
+                    rota[linha][++coluna] = filho;
+                    linha++;
+
+                    if (coluna == 1) 
+                        coluna = 0;
+                    
+                    
+                    if (filho != estado_final){
+                        comodo = comodos[filho];
+                        lista.add(comodo);
+                        ponteiro = filho;
+                    }
+                }
+            }
+        rotaprincipal(rota, estado_inicial, estado_final);
+    }
+
+
+
     public void rotaprincipal(int matriz[][], int inicial, int objetivo) {
-        ArrayList<Integer> pilha = new ArrayList<Integer> ();
+        ArrayList<Integer> pilha = new ArrayList();
 
         boolean encontrou = false;
 
@@ -266,8 +312,8 @@ public class Grafo_Comodo {
                 encontrou = true;
             } else {
                 while (matriz[linha][1] != valor) {
-                    linha--;
-                }
+                        linha--;
+                    }
 
                 pilha.add(linha);
                 valor = matriz[linha][0];
@@ -275,8 +321,6 @@ public class Grafo_Comodo {
 
         }
         int tamanho = pilha.size();
-        System.out.println("Tamanho: " + tamanho);
-        int contador = 0;
         tamanho--;
 
         while (tamanho >= 0) {
@@ -420,51 +464,6 @@ public class Grafo_Comodo {
             default:
                 return 'h';
         }
-    }
-
-    public void buscaEmProfundidade(int estado_inicial, int estado_final) {
-
-        comodos[estado_inicial].visitado = true;
-        int ponteiro = estado_inicial, linha = 0, coluna = 0;
-        caminho = caminho + estado_inicial;
-
-        ArrayList<Comodo> lista = new ArrayList<Comodo>();
-        Comodo comodo = comodos[estado_inicial];
-        lista.add(comodo);
-
-        while (!lista.isEmpty()) {
-
-            int filho = retornarNo(ponteiro);
-
-            if (filho == -1) {
-                Comodo comodo_remove = comodos[ponteiro];
-                lista.remove(comodo_remove);
-                int tamanho = lista.size();
-                tamanho = tamanho - 1;
-
-                if (tamanho >= 0) {
-                    char label = lista.get(tamanho).getId();
-                    ponteiro = retornaIndice(label);
-                }
-            } else {
-                caminho = caminho + filho;
-                comodos[filho].visitado = true;
-                comodo = comodos[filho];
-
-                lista.add(comodo);
-
-                rota[linha][coluna] = ponteiro;
-                rota[linha][++coluna] = filho;
-                linha++;
-
-                if (coluna == 1) {
-                    coluna = 0;
-                }
-
-                ponteiro = filho;
-            }
-        }
-        rotaprincipal(rota, estado_inicial, estado_final);
     }
 
 }
